@@ -9,4 +9,4 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Show user info
-        run: id
+        run: echo "${{ fromJSON('{"FAVORITE_FRUIT": "APPLE", "FAVORITE_COLOR": "BLUE"}').FAVORITE_FRUIT }}"
