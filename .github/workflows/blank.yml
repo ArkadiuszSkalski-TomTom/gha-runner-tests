@@ -8,5 +8,13 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - name: Show user info
-        run: echo "${{ fromJSON('{"FAVORITE_FRUIT": "APPLE", "FAVORITE_COLOR": "BLUE"}').FAVORITE_FRUIT }}"
+      - name: Generate
+        id: dupa
+        run: |
+          echo "::set-output name=verden::[{ 'a': 'b'}]"
+        
+      - run: |
+          $jsonArrayString = "[`"test1:test2:test3`",`"test4:test5:test6`"]"
+          echo "JSON_ARRAY=${jsonArrayString}" >> $GITHUB_OUTPUT
+
+      - run: echo "${{fromJson(steps.dupa.outputs.verden).a}}"
