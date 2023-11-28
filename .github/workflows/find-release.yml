@@ -1,0 +1,19 @@
+name: "Find a release"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  jq-example:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - run: apt-get update ; apt-get install gh
+      - run: gh release view '1.1.1'
+      - run: gh release view '1.0.0'
+      - run: gh release view '1.0.2-pre-release'
+      - run: gh release view 'dzida'
+      - run: |
+          echo "done"
