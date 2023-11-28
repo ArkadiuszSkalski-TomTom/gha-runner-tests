@@ -10,7 +10,6 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3
-      - run: apt-get update ; apt-get install gh
       - run: gh release view '1.1.1'
       - run: gh release view '1.0.0'
       - run: gh release view '1.0.2-pre-release'
