@@ -3,6 +3,9 @@ name: "Find a release"
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   jq-example:
     runs-on: ubuntu-latest
