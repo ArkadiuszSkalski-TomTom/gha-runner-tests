@@ -31,4 +31,4 @@ jobs:
       - if: ${{ inputs.alwaysFalse }}
         run: echo 'if alwaysFalse'
 
-      - run: echo 'complete
+      - run: echo 'complete'
