@@ -16,7 +16,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
+    steps:        
       - run: echo 'always'
 
       - if: ${{ !inputs.alwaysTrue }}
@@ -32,3 +32,6 @@ jobs:
         run: echo 'if alwaysFalse'
 
       - run: echo 'complete'
+
+      - run: echo "${{ toJson(github) }}"
+
