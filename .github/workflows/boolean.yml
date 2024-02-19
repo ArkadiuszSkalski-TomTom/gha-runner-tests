@@ -1,0 +1,34 @@
+name: boolean
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      alwaysTrue:
+        default: true
+        required: false
+        type: boolean
+      alwaysFalse:
+        default: false
+        required: false
+        type: boolean
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'always'
+
+      - if: ${{ !inputs.alwaysTrue }}
+        run: echo 'if !alwaysTrue'
+
+      - if: ${{ inputs.alwaysTrue }}
+        run: echo 'if alwaysTrue'
+
+      - if: ${{ !inputs.alwaysFalse }}
+        run: echo 'if !alwaysFalse'
+
+      - if: ${{ inputs.alwaysFalse }}
+        run: echo 'if alwaysFalse'
+
+      - run: echo 'complete
